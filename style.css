@@ -1,0 +1,19 @@
+/*#849db0
+#1fd2b6
+#ffffff  */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.calculator {
+  display: flex;
+  height: 85vh;
+  width: 35vw;
+  background-color: #3f4d53;
+
+  margin: 7vh auto auto auto;
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+}
