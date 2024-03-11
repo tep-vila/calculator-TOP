@@ -79,9 +79,12 @@ body {
   font-size: 2em;
 }
 
-/* .numpad-button.top {
-  border-radius: 5px 5px 0 0;
+.equal-sign {
+  background-color: #1fd2b6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  flex-grow: 1;
+  border-radius: 10px 0 0 10px;
 }
-.numpad-button.bottom {
-  border-radius: 0 0 10px 10px;
-} */
