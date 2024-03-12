@@ -47,6 +47,14 @@ body {
   height: 5%;
 }
 
+.operator-button:hover {
+  box-shadow: inset 1px 1px 5px rgba(30, 30, 30, 0.8);
+}
+
+.operator-button:active {
+  box-shadow: inset 3px 3px 5px rgba(30, 30, 30, 0.8);
+}
+
 .operator-button {
   display: flex;
   justify-content: center;
@@ -58,6 +66,8 @@ body {
 
   background-color: #849db0;
   color: #272c2e;
+
+  transition: box-shadow 0.15s;
 }
 
 .buttons-place {
@@ -87,6 +97,14 @@ body {
   font-size: 2em;
 }
 
+.numpad-button:hover {
+  box-shadow: inset 2px 2px 5px rgba(55, 58, 60, 0.8);
+}
+
+.numpad-button:active {
+  box-shadow: inset 3px 3px 5px rgba(55, 58, 60, 0.8);
+}
+
 .equal-sign {
   background-color: #1fd2b6;
   display: flex;
@@ -95,4 +113,13 @@ body {
   font-size: 5em;
   flex-grow: 1;
   border-radius: 10px 0 0 10px;
+  transition: box-shadow 0.15s;
+}
+
+.equal-sign:hover {
+  box-shadow: inset 2px 2px 2px rgba(55, 58, 60, 0.8);
+}
+
+.equal-sign:active {
+  box-shadow: inset 3px 3px rgba(55, 58, 60, 0.8);
 }
