@@ -36,7 +36,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   font-size: 4em;
-  padding: 5px;
+  padding: 0 1vw 0.4vh 1vw;
 }
 
 .operation-row {
