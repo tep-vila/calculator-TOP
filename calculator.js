@@ -6,11 +6,12 @@ const equalSign = document.querySelector(".equal-sign");
 
 let value1 = undefined;
 let value2 = undefined;
-let operator = "";
-let computed = "";
+let operator = undefined;
+let computed = undefined;
 
 let toNextValue = false;
 let isDecimal = false;
+let afterComputation = false;
 
 function updateDisplay(value) {
   if (display.textContent.length >= 14) {
@@ -29,7 +30,7 @@ function updateDisplay(value) {
 
 numpad.addEventListener("mousedown", (e) => {
   if (e.target.textContent === "clear") {
-    clear();
+    reset();
     return;
   } else if (e.target.textContent === ".") {
     handleDecimal(e);
@@ -44,6 +45,10 @@ numpad.addEventListener("mousedown", (e) => {
 });
 
 operationKeys.addEventListener("mousedown", (e) => {
+  if (operator !== undefined) {
+    console.log(computed);
+    compute();
+  }
   operator = e.target.textContent;
   if (value1 === undefined) {
     value1 = display.textContent;
@@ -55,8 +60,16 @@ operationKeys.addEventListener("mousedown", (e) => {
 });
 
 function clear() {
+  display.textContent = undefined;
+  isDecimal = false;
+}
+
+function reset() {
   display.textContent = "0";
   isDecimal = false;
+  value1 = undefined;
+  value2 = undefined;
+  operator = undefined;
 }
 
 function handleDecimal(e) {
@@ -71,10 +84,8 @@ equalSign.addEventListener("mousedown", () => {
   if (value1 === undefined) {
     return;
   } else {
-    value2 = display.textContent;
-    operation();
-    display.textContent = computed;
-    newEquation();
+    compute();
+    afterComputation = true;
   }
 });
 
@@ -105,7 +116,22 @@ function add(val1, val2) {
   computed = val1 + val2;
 }
 
+function subtract(val1, val2) {
+  computed = val1 - val2;
+}
+
 function newEquation() {
   value1 = computed;
   value2 = undefined;
+  operator = undefined;
+}
+
+function compute() {
+  value2 = display.textContent;
+  operation();
+  if (computed.toString().length > 8) {
+    display.textContent = computed.toFixed(3);
+  } else display.textContent = computed;
+  console.log(computed);
+  newEquation();
 }
