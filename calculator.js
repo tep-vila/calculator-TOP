@@ -42,6 +42,10 @@ numpad.addEventListener("mousedown", (e) => {
     return;
   }
 
+  if (afterComputation === true) {
+    reset();
+    afterComputation = false;
+  }
   if (toNextValue === true) {
     clear();
     toNextValue = false;
@@ -62,6 +66,7 @@ operationKeys.addEventListener("mousedown", (e) => {
   }
 
   toNextValue = true;
+  afterComputation = false;
 });
 
 function clear() {
@@ -122,7 +127,20 @@ function add(val1, val2) {
 }
 
 function subtract(val1, val2) {
+  console.log("occured", val1, val2);
   computed = val1 - val2;
+}
+
+function multiply(val1, val2) {
+  console.log("occured", val1, val2);
+  computed = val1 * val2;
+}
+
+function divide(val1, val2) {
+  console.log("occured", val1, val2);
+  if (val2 === 0) {
+    computed = "bobo ka";
+  } else computed = val1 / val2;
 }
 
 function newEquation() {
