@@ -32,6 +32,11 @@ numpad.addEventListener("mousedown", (e) => {
   if (e.target.textContent === "clear") {
     reset();
     return;
+  } else if (e.target.textContent === "." && toNextValue === true) {
+    clear();
+    toNextValue = false;
+    handleDecimal(e);
+    return;
   } else if (e.target.textContent === ".") {
     handleDecimal(e);
     return;
