@@ -3,11 +3,12 @@ const numpad = document.querySelector(".numpad");
 const decimalKey = document.querySelector(".numpad.decimal");
 const operationKeys = document.querySelector(".operation-row");
 
-let value1 = 0;
+let value1 = undefined;
 let value2 = 0;
 let operator = "";
 let computed = "";
 
+let toNextValue = false;
 let isDecimal = false;
 
 function updateDisplay(value) {
@@ -33,11 +34,23 @@ numpad.addEventListener("mousedown", (e) => {
     handleDecimal(e);
     return;
   }
+
+  if (toNextValue === true) {
+    clear();
+    toNextValue = false;
+  }
   updateDisplay(e.target.textContent);
 });
 
 operationKeys.addEventListener("mousedown", (e) => {
   operator = e.target.textContent;
+  if (value1 === undefined) {
+    value1 = display.textContent;
+  } else {
+    value2 = display.textContent;
+  }
+
+  toNextValue = true;
 });
 
 function clear() {
